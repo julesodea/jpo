@@ -1,4 +1,4 @@
-# Jules O'Dea - Astro
+# JPO
 
 ## Tech Stack
 
@@ -8,4 +8,3 @@
 - **Framer Motion** - Animation library
 - **Vercel Analytics** - Performance and analytics tracking
 - **TypeScript** - Type safety
-
