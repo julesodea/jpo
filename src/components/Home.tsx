@@ -1,81 +1,80 @@
 import { Wave } from "./wave/Wave";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+
+const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
 export default function Home() {
+  const reduce = useReducedMotion();
+  const rise = (delay: number) => ({
+    initial: reduce ? false : { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, delay, ease },
+  });
+
+  const linkClass =
+    "underline-offset-4 transition-colors hover:text-neutral-900 hover:underline dark:hover:text-neutral-100";
+
   return (
-    <div className="min-h-[100dvh] flex flex-col justify-center pt-[10dvh]">
-      <div className="flex flex-col justify-center items-start">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-2xl font-medium max-w-lg"
+    <div className="flex min-h-[100dvh] flex-col justify-center pt-[10dvh]">
+      <motion.h1
+        {...rise(0)}
+        className="max-w-xl text-3xl font-medium leading-[1.2] tracking-tight sm:text-4xl"
+      >
+        Hello! <Wave /> I'm{" "}
+        <span className="font-medium text-neutral-900 dark:text-neutral-100">
+          Jules
+        </span>
+        , a{" "}
+        <span className="italic text-neutral-800 dark:text-neutral-300">
+          Frontend Developer
+        </span>{" "}
+        based in Auckland.
+      </motion.h1>
+
+      <motion.p
+        {...rise(0.15)}
+        className="max-w-2xl pt-6 text-base leading-relaxed text-neutral-600 dark:text-neutral-400 sm:text-lg"
+      >
+        I am a passionate and collaborative Frontend Developer with 6+ years of
+        experience delivering innovative, highly optimised web and mobile
+        applications for global clients. Leveraging technologies like
+        JavaScript, TypeScript, React, HTML, CSS, SCSS, and Tailwind, I combine
+        technical excellence with a focus on creating responsive, user-friendly
+        solutions delivering for client and customer needs.
+      </motion.p>
+
+      <motion.div
+        {...rise(0.3)}
+        className="flex flex-col gap-4 pt-8 sm:flex-row sm:items-center sm:gap-6"
+      >
+        <a
+          href="mailto:jules.odea@gmail.com"
+          className="font-medium underline-offset-4 hover:underline"
         >
-          Hello! <Wave /> I'm{" "}
-          <span className="dark:text-neutral-100 light:text-neutral-800 font-medium">
-            Jules
-          </span>
-          , a{" "}
-          <span className="italic dark:text-neutral-300 text-neutral-800">
-            Frontend Developer
-          </span>{" "} <br />
-          based in Auckland.
-        </motion.h1>
-      </div>
-      <div className="flex flex-col justify-center pt-4">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25 }}
-          className="text-medium text-gray-700 dark:text-gray-300 text-left max-w-2xl"
-        >
-          I am a passionate and collaborative Frontend Developer with 6+ years
-          of experience delivering innovative, highly optimised web and mobile
-          applications for global clients. Leveraging technologies like
-          JavaScript, TypeScript, React, HTML, CSS, SCSS, and Tailwind, I
-          combine technical excellence with a focus on creating responsive,
-          user-friendly solutions delivering for client and customer needs.
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="space-y-6 pt-6"
-        >
-          <div className="flex flex-col sm:flex-row justify-start items-start space-y-4 sm:space-y-0 sm:space-x-6">
-            <a
-              href="mailto:jules.odea@gmail.com"
-              className="hover:underline font-bold"
-            >
-              jules.odea@gmail.com
-            </a>
-            <div className="flex space-x-4 text-gray-500 dark:text-gray-400">
-              <a
-                href="https://github.com/julesodea"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
-              >
-                Github
-              </a>
-              <a
-                href="https://linkedin.com/in/julesodea"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="/cv"
-                target="_blank"
-                className="hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
-              >
-                CV
-              </a>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+          jules.odea@gmail.com
+        </a>
+        <div className="flex gap-4 text-neutral-500 dark:text-neutral-400">
+          <a
+            href="https://github.com/julesodea"
+            target="_blank"
+            rel="noreferrer"
+            className={linkClass}
+          >
+            Github
+          </a>
+          <a
+            href="https://linkedin.com/in/julesodea"
+            target="_blank"
+            rel="noreferrer"
+            className={linkClass}
+          >
+            LinkedIn
+          </a>
+          <a href="/cv" target="_blank" className={linkClass}>
+            CV
+          </a>
+        </div>
+      </motion.div>
     </div>
   );
 }

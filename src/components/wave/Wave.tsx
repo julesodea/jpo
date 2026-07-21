@@ -1,15 +1,16 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export const Wave = () => {
+  const reduce = useReducedMotion();
   return (
     <motion.span
       style={{ display: "inline-block", verticalAlign: "middle", marginBottom: "4px" }}
-      initial={{ rotate: "0deg", opacity: 0, y: 5 }}
-      animate={{
-        rotate: ["0deg", "30deg", "0deg", "30deg", "0deg"],
-        opacity: 1,
-        y: 0,
-      }}
+      initial={reduce ? false : { rotate: "0deg", opacity: 0, y: 5 }}
+      animate={
+        reduce
+          ? { opacity: 1 }
+          : { rotate: ["0deg", "30deg", "0deg", "30deg", "0deg"], opacity: 1, y: 0 }
+      }
       transition={{ duration: 1 }}
       className="inline-flex items-center"
     >
