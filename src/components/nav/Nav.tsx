@@ -6,7 +6,7 @@ export default function Nav() {
       <div className="mx-auto max-w-7xl">
         <div className="flex items-center justify-between px-4 py-4">
           <a
-            className="font-medium tracking-tight underline-offset-4 hover:underline"
+            className="font-bold tracking-tight underline-offset-4 hover:underline"
             href="/"
           >
             JULES O'DEA
