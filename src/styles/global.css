@@ -13,7 +13,7 @@ body {
 
 @layer base {
   body {
-    @apply bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 font-sans antialiased;
+    @apply bg-white text-neutral-900 dark:bg-[#0d0d0d] dark:text-neutral-100 font-sans antialiased;
   }
   ::selection {
     @apply bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900;

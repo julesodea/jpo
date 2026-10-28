@@ -1,7 +1,7 @@
 ---
 import '@fontsource-variable/geist';
 import '../styles/global.css';
-import Nav from '../components/nav/Nav';
+import ThemeToggle from '../components/theme/ThemeToggle';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
@@ -14,6 +14,12 @@ const {
   title = "Jules O'Dea - Frontend Developer | Auckland, New Zealand",
   description = "Frontend Developer specialising in modern web technologies and user experiences based in New Zealand.",
 } = Astro.props;
+
+const links = [
+  { label: 'GitHub', href: 'https://github.com/julesodea' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/julesodea' },
+  { label: 'CV', href: '/cv' },
+];
 ---
 
 <!doctype html>
@@ -53,9 +59,31 @@ const {
     </script>
   </head>
   <body>
-    <Nav client:load />
-    <div class="mx-auto px-4 max-w-7xl">
-      <slot />
+    <div class="flex min-h-dvh flex-col px-6 py-8 sm:px-10 sm:py-10 lg:px-16">
+      <header class="flex items-center justify-between text-sm sm:text-base">
+        <a href="/" class="font-bold tracking-tight underline-offset-4 hover:underline">JULES O'DEA</a>
+        <ThemeToggle client:load />
+      </header>
+
+      <main class="flex flex-1 flex-col justify-center py-24">
+        <slot />
+      </main>
+
+      <footer class="flex flex-col-reverse gap-8 sm:flex-row sm:items-end sm:justify-between">
+        <ul class="flex gap-6 text-xs sm:text-sm">
+          {links.map(({ label, href }) => (
+            <li>
+              <a href={href} target="_blank" rel="noreferrer" class="underline-offset-4 hover:underline">{label}</a>
+            </li>
+          ))}
+        </ul>
+        <a
+          href="mailto:jules.odea@gmail.com"
+          class="text-lg tracking-tight underline-offset-4 hover:underline sm:text-[1.40625rem] lg:text-[1.6875rem]"
+        >
+          jules.odea@gmail.com
+        </a>
+      </footer>
     </div>
     <Analytics client:only="react" />
     <SpeedInsights client:only="react" />

@@ -1,8 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Home from '../components/Home';
 ---
 
 <Layout>
-  <Home client:load />
+  <section>
+    <h1 class="text-6xl font-medium tracking-tighter sm:text-7xl lg:text-8xl">About</h1>
+
+    <div class="mt-12 max-w-3xl space-y-6 text-base leading-snug sm:text-lg">
+      <p>
+        Hi, I'm Jules O'Dea, a Frontend Developer based in Auckland. With a passion for
+        creating responsive, user-friendly experiences, I help businesses deliver innovative,
+        highly optimised web and mobile applications.
+      </p>
+      <p>
+        Over the past 6+ years, I've worked with global clients, combining technical
+        excellence with a focus on solutions that deliver for both client and customer needs.
+      </p>
+      <p>
+        I'm proficient in JavaScript, TypeScript, React, HTML, CSS, SCSS, and Tailwind, and
+        enjoy collaborating closely with designers and developers to bring ideas to life.
+      </p>
+    </div>
+  </section>
 </Layout>
