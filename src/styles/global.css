@@ -20,12 +20,6 @@ body {
   }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
 @keyframes rise {
   from {
     opacity: 0;

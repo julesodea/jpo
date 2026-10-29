@@ -2,9 +2,7 @@
 
 ## Tech Stack
 
-- **Astro 5.x** - Static site framework
-- **React** - For interactive components
+- **Astro 7.x** - Static site framework
 - **Tailwind CSS 4.x** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **Vercel Analytics** - Performance and analytics tracking
+- **Vercel Analytics & Speed Insights** - Performance and analytics tracking
 - **TypeScript** - Type safety
