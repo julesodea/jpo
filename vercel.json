@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/cv", "destination": "/julesodea-cv.pdf", "permanent": false }
+  ]
+}
